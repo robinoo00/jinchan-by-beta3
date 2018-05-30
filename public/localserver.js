@@ -1,23 +1,26 @@
-function toast(text) {
-    $('#toast').html(text).show();
+function toast(text,duration = 1000) {
+    var has = document.getElementById('toast');
+    if(has === null){
+        var body = document.getElementsByTagName('body')[0];
+        var wrap = document.createElement('div');
+        wrap.innerHTML = '<div class="window_toast" id="toast"></div>';
+        body.appendChild(wrap);
+    }
+    var item  = document.getElementById('toast');
+    item.innerText = text;
+    item.style.display = 'block';
     setTimeout(function () {
-        $('#toast').hide();
-    }, 1000)
+        item.style.display = 'none';
+    }, duration)
 }
-
-// var k_url = 'http://192.168.1.3/hdl-test/test1';
-// var k_url = 'http://www.i7quan.com/test/k.html';
-var k_url = 'http://web.hdlkg.net/k.html';
+var k_type_choose = "";
 var work = $.connection.myHub;
 $.connection.hub.url = 'http://47.96.146.155:1817/lcc';
 var hub = $.connection.hub;
 hub.start().done(function () {
-    window.work.server.品种行情()
+    work.server.品种行情()
     setInterval(function () {
-        window.work.server.品种行情()
+        work.server.品种行情()
     }, 1000)
 });
-// var home_data;
-// work.client.GetFSData = function (data) {
-//     home_data = data;
-// };
+

@@ -9,12 +9,6 @@ import router from 'umi/router'
 // import Link from 'umi/link'
 import config from '../../../utils/config'
 import qrcode from '../images/qrcode.png'
-
-const pickerData = [
-    {label:'实盘',value:0},
-    {label:'模拟',value:1}
-    ];
-
 const Login = ({...rest}) => (
     <div styleName="mod-login">
         <Header
@@ -25,14 +19,15 @@ const Login = ({...rest}) => (
             <div styleName="logo-img"></div>
         </div>
         <div styleName="forms">
-            <Picker onChange={rest.assignSev} cols={1} data={pickerData}>
+            <Picker
+                cols={1}
+                data={rest.pickerData}
+                {...rest.form.getFieldProps('sev',{
+                    initialValue:[rest.choose.value]
+                })}>
             <div styleName="mod-form">
                     <label>类型</label>
-                    <input type="text" styleName="inp" value={pickerData[rest.sev]['label']} readOnly/>
-                {/*<select style={{width: '1.72rem', height: '0.3rem'}} styleName="inp" onChange={rest.assignSev} defaultValue={rest.sev}>*/}
-                    {/*<option value="0">实盘</option>*/}
-                    {/*<option value="1">模拟</option>*/}
-                {/*</select>*/}
+                    <input type="text" styleName="inp" value={rest.choose.label} readOnly/>
             </div>
             </Picker>
             <div styleName="mod-form">
@@ -81,7 +76,8 @@ const Login = ({...rest}) => (
 const mapStateToProps = state => ({
     account:state.login.account,
     password:state.login.password,
-    sev:state.login.sev,
+    choose:state.login.pickerData.filter(item => item.choose)[0],
+    pickerData:state.login.pickerData,
     pwd_cash:state.login.pwd_cash,
 })
 
@@ -97,19 +93,13 @@ const mapDispatchToProps = (dispatch, props) => ({
             { text: '关闭', onPress: () => {} },
         ])
     },
-    assignSev:(v) => {
-        dispatch({
-            type:'login/assignSev',
-            sev:v
-        })
-    },
     submit: sev => () => {
         props.form.validateFields({force: true}, (error) => {
             if (!error) {
                 let value = props.form.getFieldsValue();
                 dispatch({
                     type: 'login/LoginIn',
-                    values: {account: value.account, password: value.password, sev: sev},
+                    values: {account: value.account, password: value.password, sev: value.sev[0]},
                 });
             } else {
                 const errors = Object.values(error);

@@ -7,7 +7,6 @@ import {Modal} from 'antd-mobile'
 class BuyList extends React.Component {
     componentDidMount() {
         const {getList, list} = this.props;
-        console.log(list);
         getList();
     }
 

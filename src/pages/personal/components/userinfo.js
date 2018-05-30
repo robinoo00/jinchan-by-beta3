@@ -7,9 +7,15 @@ import {Toast} from 'antd-mobile'
 const UserInfo = ({...rest}) => {
     return (
         <div styleName="mod-userinfo">
-            <div styleName="balance-wrap">
-                <p>账户余额</p>
-                <p style={{fontSize:'.4rem'}}>{rest.data.可用资金}</p>
+            <div styleName="flex2">
+                <div styleName="balance-wrap" style={{color:'#b5b5b5'}}>
+                    <p>账户余额</p>
+                    <p style={{fontSize:'.15rem'}}>{rest.money.可用资金}</p>
+                </div>
+                <div styleName="balance-wrap">
+                    <p>自有资金</p>
+                    <p style={{fontSize:'.25rem'}}>{rest.money.自有资金}</p>
+                </div>
             </div>
             <ul styleName="pay-wrap">
                 <li onClick={() => {
@@ -37,6 +43,7 @@ const UserInfo = ({...rest}) => {
 
 const mapStateToProps = state => ({
     data:state.personal.data,
+    money:state.personal.money,
     action:state.personal.action
 })
 

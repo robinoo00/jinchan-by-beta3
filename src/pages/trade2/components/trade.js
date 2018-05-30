@@ -8,7 +8,6 @@ import React from 'react'
 import {connect} from 'dva'
 import {Toast} from 'antd-mobile'
 import Detail from './detail'
-import Nav from './nav'
 
 let id = 0;
 
@@ -16,7 +15,6 @@ let id = 0;
 const Trade = () => (
     <div>
         <Header/>
-        {/*<Nav/>*/}
         <Kmap/>
         <div id={'trade-op'} style={{position:'fixed',bottom:'8px',left:0,width:'100%'}}>
             <Detail/>

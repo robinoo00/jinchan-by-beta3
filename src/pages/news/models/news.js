@@ -35,8 +35,8 @@ export default {
         },
         *loadMore({},{put,select}){
             if(!loading){
-                const page = yield select(state => state.discover.page);
-                const nomore = yield select(state => state.discover.nomore);
+                const page = yield select(state => state.news.page);
+                const nomore = yield select(state => state.news.nomore);
                 if(!nomore){
                     yield put({
                         type:'getList',

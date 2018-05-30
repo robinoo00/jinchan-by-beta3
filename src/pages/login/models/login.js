@@ -6,7 +6,10 @@ import config from '../../../utils/config'
 export default {
     namespace: 'login',
     state: {
-        sev:0,
+        pickerData:[
+            {label:'实盘',value:0,choose:true},
+            // {label:'模拟',value:1,choose:true}
+        ],
         pwd_cash:localStorage.getItem(config.PWD_CASH) === "false" ? false : true,
         account:localStorage.getItem(config.ACCOUNT) === null ? '' : localStorage.getItem(config.ACCOUNT),
         password:localStorage.getItem(config.PASSWORD) === null ? '' : localStorage.getItem(config.PASSWORD)
@@ -51,12 +54,6 @@ export default {
     },
 
     reducers: {
-        assignSev(state,{sev}){
-            return{
-                ...state,
-                sev:sev
-            }
-        },
         assignPwdCash(state){
             return {
                 ...state,

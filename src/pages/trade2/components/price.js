@@ -4,6 +4,7 @@ import React from 'react'
 import {Toast} from 'antd-mobile'
 import Btns from './btns'
 import config from "../../../utils/config";
+import {connect} from 'dva'
 
 let id = 0
 

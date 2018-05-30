@@ -5,9 +5,6 @@ import Header from '../../../components/header/header'
 import React from 'react'
 
 class Example extends React.Component{
-    componentWillMount(){
-        window.hideK();
-    }
     render(){
         return(
             <div>

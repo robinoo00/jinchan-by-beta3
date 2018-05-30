@@ -5,8 +5,8 @@ export default {
     state: {
         data:[
             {title:'可用资金',value:0,key:10},
-            {title:'优先资金',value:0,key:'优先'},
-            {title:'劣后资金',value:0,key:'劣后'},
+            {title:'授信资金',value:0,key:'优先'},
+            {title:'自有资金',value:0,key:'劣后'},
             {title:'静态权益',value:0,key:11},
             {title:'动态权益',value:0,key:12},
             {title:'入金金额',value:0,key:3},

@@ -63,11 +63,8 @@ export default {
                 if (data) {
                     if (data.信息 === 'error') {
                         window.toast('交易失败')
-                        // text = '交易失败';
-                        // Toast.info('交易失败');
                     } else {
                         window.toast(data.信息)
-                        // Toast.info(data.信息)
                     }
                 } else {
                     window.toast('交易失败')
@@ -85,29 +82,6 @@ export default {
                         window.toast('交易失败');
                     }
                 }
-                // let title = direction === 0 ? "买" : "卖";
-                // if(offset != 0 ){
-                //     title = title === "买" ? "平卖" : "平买";
-                // }
-                // title = title + num + '手';
-                // prompt(title, '',
-                //     [
-                //         {
-                //             text: '取消',
-                //             onPress: value => new Promise((resolve) => {
-                //                 resolve();
-                //                 post_data['price'] = value;
-                //                 console.log(`value:${value}`);
-                //             }),
-                //         },
-                //         {
-                //             text: '确定',
-                //             onPress: value => {
-                //             },
-                //         },
-                //     ], 'default', null, ['请输入价格']).then(data => {
-                //         console.log(data);
-                // });
             }
             Toast.hide();
         },

@@ -10,7 +10,7 @@ let id = 0;
 
 class HomeList extends React.Component {
   componentWillMount() {
-      window.hideK();
+      // window.hideK();
       // const {assignList} = this.props;
       // window.work.client.GetFSData = function (data) {
       //     assignList(JSON.parse(data))
