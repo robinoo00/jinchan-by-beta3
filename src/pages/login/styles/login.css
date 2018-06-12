@@ -36,18 +36,21 @@
 
 .mod-login .links {
     margin-top: 0.15rem;
-    display: flex;
-    justify-content: space-between;
 }
 
 .mod-form {
     position: relative;
     padding: .05rem 0 .05rem .15rem;
     line-height: .32rem;
-    display: flex;
-    align-items: center;
 }
-
+.label-wrap{
+    flex: 0 !important;
+    min-width: 25px !important;
+    box-flex: 0 !important;
+    -webkit-box-flex: 0 !important;
+    -moz-box-flex: 0 !important;
+    -ms-box-flex: 0 !important;
+}
 .mod-form label {
     display: inline-block;
     color: #FFF;
@@ -65,6 +68,7 @@
     color: #FFF;
     -webkit-appearance: none;
     flex: 1;
+    width: 100%;
 }
 /* 记住&忘记密码 */
 .mod-login .option {

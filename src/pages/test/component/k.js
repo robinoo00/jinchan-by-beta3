@@ -4,6 +4,7 @@ import {connect} from 'dva'
 import CSSModules from 'react-css-modules'
 import styles from '../styles/k.css'
 import config from "../../../utils/config";
+import {Flex} from 'antd-mobile'
 
 const draw = new Draw();
 var work = window.$.connection.myHub;
@@ -110,11 +111,16 @@ class K extends React.Component {
         const {type_list,type_choose} = this.props;
         return (
             <div>
-                <nav styleName="k-nav">
+                <Flex styleName="k-nav">
                     {type_list.map((item,index) => (
-                        <div style={type_choose === item ? {borderBottom:'1px solid #fff'} : {}} styleName={"k-nav-item"} key={'k_nav_'+index} onClick={this.chooseType(item).bind(this)}>{item}</div>
+                        <Flex.Item style={type_choose === item ? {borderBottom:'1px solid #fff'} : {}} styleName={"k-nav-item"} key={'k_nav_'+index} onClick={this.chooseType(item).bind(this)}>{item}</Flex.Item>
                     ))}
-                </nav>
+                </Flex>
+                {/*<nav styleName="k-nav">*/}
+                    {/*{type_list.map((item,index) => (*/}
+                        {/*<div style={type_choose === item ? {borderBottom:'1px solid #fff'} : {}} styleName={"k-nav-item"} key={'k_nav_'+index} onClick={this.chooseType(item).bind(this)}>{item}</div>*/}
+                    {/*))}*/}
+                {/*</nav>*/}
                 <canvas id="k" style={{zoom: 0.5, backgroundColor: "#20212b"}}></canvas>
             </div>
         )

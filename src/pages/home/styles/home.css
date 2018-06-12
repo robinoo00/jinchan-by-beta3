@@ -16,7 +16,7 @@
 .m-links .item .link {
     display: block;
 }
-.fr, .m-links .item .link .img {
+.m-links .item .link .img {
     float: right;
 }
 .m-links .item .link .img>img {
@@ -75,7 +75,6 @@
     color: #999;
 }
 .mod-index-list .wrap .mod-menu .fr {
-    float: right;
     text-align: right;
     margin-right: .3rem;
     color: #E34C4D;

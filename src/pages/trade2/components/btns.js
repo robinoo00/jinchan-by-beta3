@@ -4,7 +4,7 @@ import {connect} from 'dva'
 import {Modal} from 'antd-mobile'
 import config from '../../../utils/config'
 import React from 'react'
-import {Toast} from 'antd-mobile'
+import {Toast,Flex} from 'antd-mobile'
 
 const prompt = Modal.prompt;
 
@@ -31,28 +31,39 @@ class Btns extends React.Component {
         const {...rest} = this.props;
         return (
             <div>
-                <div styleName="trade-btn-wrap">
-                    <div styleName="trade-btn"
-                         onClick={rest.price_type === 1 ? rest.ifSwitch('确定买入？', rest.buy) : rest.limitOrder('买入' + rest.num + '手', rest.buy)}>
-                        <div styleName="btn-num">{rest.data.买价 ? rest.data.买价 : '...'}</div>
-                        <div styleName="btn-title">买</div>
-                    </div>
-                    <div styleName="trade-btn"
-                         onClick={rest.ifSwitch('确定平买？', rest.ping_buy)}>
-                        <div styleName="btn-num">持{rest.buy_num}手</div>
-                        <div styleName="btn-title">平买</div>
-                    </div>
-                    <div styleName="trade-btn"
-                         onClick={rest.price_type === 1 ? rest.ifSwitch('确定卖出？', rest.sell) : rest.limitOrder('卖出' + rest.num + '手', rest.sell)}>
-                        <div styleName="btn-num">{rest.data.卖价 ? rest.data.卖价 : '...'}</div>
-                        <div styleName="btn-title">卖</div>
-                    </div>
-                    <div styleName="trade-btn"
-                         onClick={rest.ifSwitch('确定平卖？', rest.ping_sell)}>
-                        <div styleName="btn-num">持{rest.sell_num}手</div>
-                        <div styleName="btn-title">平卖</div>
-                    </div>
-                </div>
+                <Flex>
+                    <Flex.Item>
+                        <div styleName="trade-btn"
+                             onClick={rest.price_type === 1 ? rest.ifSwitch('确定买入？', rest.buy) : rest.limitOrder('买入' + rest.num + '手', rest.buy)}>
+                            <div styleName="btn-num">{rest.data.买价 ? rest.data.买价 : '...'}</div>
+                            <div styleName="btn-title">买</div>
+                        </div>
+                    </Flex.Item>
+                    <Flex.Item>
+                        <div styleName="trade-btn"
+                             style={{backgroundColor:'#a703a2'}}
+                             onClick={rest.ifSwitch('确定平买？', rest.ping_buy)}>
+                            <div styleName="btn-num">持{rest.buy_num}手</div>
+                            <div styleName="btn-title">平买</div>
+                        </div>
+                    </Flex.Item>
+                    <Flex.Item>
+                        <div styleName="trade-btn"
+                             style={{backgroundColor:'#1eb71e'}}
+                             onClick={rest.price_type === 1 ? rest.ifSwitch('确定卖出？', rest.sell) : rest.limitOrder('卖出' + rest.num + '手', rest.sell)}>
+                            <div styleName="btn-num">{rest.data.卖价 ? rest.data.卖价 : '...'}</div>
+                            <div styleName="btn-title">卖</div>
+                        </div>
+                    </Flex.Item>
+                    <Flex.Item>
+                        <div styleName="trade-btn"
+                             style={{backgroundColor:'#0074b1'}}
+                             onClick={rest.ifSwitch('确定平卖？', rest.ping_sell)}>
+                            <div styleName="btn-num">持{rest.sell_num}手</div>
+                            <div styleName="btn-title">平卖</div>
+                        </div>
+                    </Flex.Item>
+                </Flex>
             </div>
         )
     }
@@ -116,7 +127,7 @@ const mapDispatchToProps = (dispatch, props) => ({
         }
     },
     buy: () => {
-        Toast.loading('交易中...', 0);
+        window.loading('交易中...', 0);
         dispatch({
             type: 'trade2/order',
             direction: 0,
@@ -124,7 +135,7 @@ const mapDispatchToProps = (dispatch, props) => ({
         })
     },
     sell: () => {
-        Toast.loading('交易中...', 0);
+        window.loading('交易中...', 0);
         dispatch({
             type: 'trade2/order',
             direction: 1,
@@ -132,14 +143,14 @@ const mapDispatchToProps = (dispatch, props) => ({
         })
     },
     ping_buy: () => {
-        Toast.loading('交易中...', 0);
+        window.loading('交易中...', 0);
         dispatch({
             type: 'trade2/ping',
             direction: 0
         })
     },
     ping_sell: () => {
-        Toast.loading('交易中...', 0);
+        window.loading('交易中...', 0);
         dispatch({
             type: 'trade2/ping',
             direction: 1

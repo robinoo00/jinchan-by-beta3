@@ -187,6 +187,22 @@ html:not([data-scale]) .am-button-primary::before{
     color: #fff;
     font-size: 14px;
     position: fixed;
-    z-index: 1;
+    z-index: 102;
     border-radius: 8px;
+    text-align: center;
+}
+.window_mask{
+    display: none;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255,255,255,0);
+    z-index: 101;
+}
+.window_loading{
+    animation: spin 1600ms infinite linear;
+}
+@keyframes spin {
+    0%   { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
 }

@@ -6,7 +6,7 @@ import ItemArea from './item-area'
 import ItemPic from './item-pic'
 import ItemCode from './item-code'
 import {createForm} from 'rc-form'
-import {Toast,Button} from 'antd-mobile'
+import {Toast,Button,Flex} from 'antd-mobile'
 import React from 'react'
 
 const Form = ({...rest}) => (

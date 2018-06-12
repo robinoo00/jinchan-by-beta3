@@ -1,7 +1,7 @@
 import CSSModules from 'react-css-modules'
 import styles from '../styles/trade.css'
 import React from 'react'
-import {Toast} from 'antd-mobile'
+import {Toast,Flex} from 'antd-mobile'
 import Btns from './btns'
 import config from "../../../utils/config";
 import {connect} from 'dva'
@@ -61,22 +61,34 @@ class Price extends React.Component{
         const {data,list} = this.state;
         return(
             <div>
-                <div styleName="price-detail">
-                    <div styleName="detail-left">
-                        <div styleName="detail-left-top">
-                            <div styleName="detail-left-item">买价：{data.买价}</div>
-                            <div styleName="detail-left-item">买量：{data.买量}</div>
+                <Flex style={{padding:'.1rem'}}>
+                    <Flex.Item>
+                        <div styleName="detail-left">
+                            <Flex style={{marginBottom:'.2rem'}}>
+                                <Flex.Item>
+                                    <div styleName="detail-left-item">买价：{data.买价}</div>
+                                </Flex.Item>
+                                <Flex.Item>
+                                    <div styleName="detail-left-item">买量：{data.买量}</div>
+                                </Flex.Item>
+                            </Flex>
+                            <Flex>
+                                <Flex.Item>
+                                    <div styleName="detail-left-item">卖价：{data.卖价}</div>
+                                </Flex.Item>
+                                <Flex.Item>
+                                    <div styleName="detail-left-item">卖量：{data.卖量}</div>
+                                </Flex.Item>
+                            </Flex>
                         </div>
-                        <div styleName="detail-left-top">
-                            <div styleName="detail-left-item">卖价：{data.卖价}</div>
-                            <div styleName="detail-left-item">卖量：{data.卖量}</div>
+                    </Flex.Item>
+                    <Flex.Item>
+                        <div styleName="detail-right">
+                            <div style={{textAlign:'center'}}>最新价</div>
+                            <div styleName="detail-right-item">{data.最新价}</div>
                         </div>
-                    </div>
-                    <div styleName="detail-right">
-                        <div style={{textAlign:'center'}}>最新价</div>
-                        <div styleName="detail-right-item">{data.最新价}</div>
-                    </div>
-                </div>
+                    </Flex.Item>
+                </Flex>
                 <Btns data={data}/>
             </div>
         )

@@ -186,6 +186,8 @@
     height: .9rem;
     width: .9rem;
     font-size: 12px;
+    text-align: center;
+    margin: 0 auto;
 }
 .sell_item{
     border: .01rem solid #ECECEC;

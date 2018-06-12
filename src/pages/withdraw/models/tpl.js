@@ -25,9 +25,11 @@ export default {
             Toast.loading('提交中',0);
             const {data} = yield call(WithDrawServices.withdraw,{pass,money})
             if(data){
-                Toast.info(data.信息);
+                Toast.info(data.信息,2);
                 if(data.状态){
-                    router.push({pathname:'/personal'})
+                    setTimeout(() => {
+                        router.push({pathname:'/personal'})
+                    },2000)
                 }
             }
         }

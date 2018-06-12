@@ -1,30 +1,52 @@
 import CSSModules from 'react-css-modules'
 import styles from '../styles/trade.css'
 import {connect} from 'dva'
+import {Flex} from 'antd-mobile'
 
-const Example = ({...rest}) => {
+const Operation = ({...rest}) => {
     return (
-        <div>
-            <div styleName="type-wrap">
-                <div styleName="num-choose">
-                    <div styleName="del-item" onClick={rest.delNum(rest.num)}>-</div>
-                    <div styleName="num-input">
-                        <input type="number" onChange={rest.inputNum} value={rest.num}/>
-                    </div>
-                    <div styleName="add-item" onClick={rest.addNum(rest.num)}>+</div>
-                </div>
-                <div styleName="price-choose">
-                    <div styleName="price-item" onClick={rest.chooseType(1)}>
-                        <div styleName={rest.type === 1 ? "checkbox-icon-choose" : "checkbox-icon"}></div>
-                        <div styleName="price-title">市价</div>
-                    </div>
-                    <div styleName="price-item" onClick={rest.chooseType(2)}>
-                        <div styleName={rest.type === 2 ? "checkbox-icon-choose" : "checkbox-icon"}></div>
-                        <div styleName="price-title">限价</div>
-                    </div>
-                </div>
-            </div>
-        </div>
+        <Flex style={{padding:'.1rem'}}>
+            <Flex.Item>
+                <Flex styleName="num-choose">
+                    <Flex.Item>
+                        <div styleName="del-item" onClick={rest.delNum(rest.num)}>-</div>
+                    </Flex.Item>
+                    <Flex.Item>
+                        <div styleName="num-input">
+                            <input type="number" onChange={rest.inputNum} value={rest.num}/>
+                        </div>
+                    </Flex.Item>
+                    <Flex.Item>
+                        <div styleName="add-item" onClick={rest.addNum(rest.num)}>+</div>
+                    </Flex.Item>
+                </Flex>
+            </Flex.Item>
+            <Flex.Item>
+                <Flex>
+                    <Flex.Item>
+                        <Flex styleName="price-item" onClick={rest.chooseType(1)}>
+                            <Flex.Item>
+                                <div styleName={rest.type === 1 ? "checkbox-icon-choose" : "checkbox-icon"}></div>
+                            </Flex.Item>
+                            <Flex.Item style={{marginLeft:0}}>
+                                <div styleName="price-title">市价</div>
+                            </Flex.Item>
+                        </Flex>
+                    </Flex.Item>
+                    {/*<Flex.Item>*/}
+                        {/*<Flex styleName="price-item" onClick={rest.chooseType(2)}>*/}
+                            {/*<Flex.Item>*/}
+                                {/*<div styleName={rest.type === 2 ? "checkbox-icon-choose" : "checkbox-icon"}></div>*/}
+                            {/*</Flex.Item>*/}
+                            {/*<Flex.Item>*/}
+                                {/*<div styleName="price-title">限价</div>*/}
+                            {/*</Flex.Item>*/}
+                        {/*</Flex>*/}
+                    {/*</Flex.Item>*/}
+                </Flex>
+            </Flex.Item>
+        </Flex>
+
     );
 };
 
@@ -60,5 +82,5 @@ const mapDispatchToProps = (dispatch,props) => ({
     }
 })
 
-export default connect(mapStateToProps,mapDispatchToProps)(CSSModules(Example, styles))
+export default connect(mapStateToProps,mapDispatchToProps)(CSSModules(Operation, styles))
 

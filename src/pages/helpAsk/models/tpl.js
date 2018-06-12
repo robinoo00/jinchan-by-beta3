@@ -45,8 +45,8 @@ export default {
             formData.append('key',localStorage.getItem(config.KEY));
             const {data} = yield call(TplServices.ask,formData)
             if(data){
-                Toast.info(data.信息);
                 if(data.状态){
+                    Toast.info('提交成功，客服会尽快答复您，请等待');
                     router.goBack();
                 }
             }else{

@@ -2,19 +2,20 @@ import CSSModules from 'react-css-modules'
 import styles from '../styles/form.css'
 import tp1 from '../images/tp1.png'
 import {connect} from 'dva'
+import {Flex} from 'antd-mobile'
 
 const Item = ({list,assignPic}) => (
-    <div styleName="mod-form" style={{justifyContent:'space-around'}}>
+    <Flex styleName="mod-form" style={{justifyContent:'space-around'}}>
         {list.map((item,index) => (
-            <div key={'register_pic_'+item.name} styleName="file-wrap">
+            <Flex.Item key={'register_pic_'+item.name} styleName="file-wrap">
                 <input type="file" styleName="file-inp" onChange={assignPic(index)}/>
                 <div styleName="td2">
                     <img src={item.src}/>
                     <div styleName="td2tr">{item.title}</div>
                 </div>
-            </div>
+            </Flex.Item>
         ))}
-    </div>
+    </Flex>
 )
 
 const mapStateToProps = state => ({

@@ -25,7 +25,6 @@
 .num-choose{
     border-radius: 3px;
     border:1px solid #0d6a94;
-    display: flex;
 }
 .del-item,.num-input,.add-item{
     text-align: center;
@@ -37,7 +36,7 @@
     border-left: 1px solid #0d6a94;
     border-right: 1px solid #0d6a94;
     padding: 0;
-    width: .5rem;
+    width: 100%;
 }
 .num-input input{
     background: none;
@@ -48,10 +47,9 @@
     text-align: center;
 }
 .price-choose{
-    display: flex;
+    white-space: nowrap;
 }
 .price-item{
-    display: flex;
     margin-right: .1rem;
     font-size: 0.15rem;
 }
@@ -59,6 +57,7 @@
     margin-right: .01rem;
     /*background-color: #fff;*/
     font-size: .16rem;
+    text-align: right;
 }
 .checkbox-icon:before{
     content:'\e63e';
@@ -70,7 +69,6 @@
     color: #01aee3;
 }
 .price-title{
-
 }
 .price-detail{
     display: flex;
@@ -79,7 +77,7 @@
     align-items: center;
 }
 .detail-left{
-    width: 1.5rem;
+    /*width: 1.5rem;*/
 }
 .detail-left-top{
     display: flex;
@@ -99,6 +97,7 @@
 .detail-right-item{
     font-size: .32rem;
     color: #40f200;
+    text-align: center;
 }
 .trade-btn-wrap{
     display: flex;
@@ -110,6 +109,7 @@
     width: .6rem;
     height: .6rem;
     align-self: center;
+    margin: 0 auto;
 }
 .trade-btn:nth-of-type(1){
     background-color: #e7512e;
@@ -141,14 +141,13 @@
 }
 .detail-list{
     padding: .07rem 0 0 0;
-    text-align: center;
-    display: flex;
-    justify-content: space-around;
 }
 .trade-details{
     font-size: .13rem;
+    text-align: center;
 }
 .trade-details:before{
     content:'\e62d';
     font-family: iconfont;
+    white-space: nowrap;
 }

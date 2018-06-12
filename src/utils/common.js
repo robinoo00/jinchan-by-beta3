@@ -52,3 +52,17 @@ export function getFormatTime(stampTime = (new Date()).getTime(),string = 'yyyy-
     };
     return new Date(stampTime).Format(string);
 }
+//重建日期格式
+export function reBuildDate(date){
+    const year = date.slice(0,4);
+    const month = date.slice(4,6);
+    const day = date.slice(6,8);
+    return `${year}-${month}-${day}`
+}
+//重建时间格式
+export function reBuildTime(date){
+    const hour = date.slice(0,2);
+    const min = date.slice(2,4);
+    const second = date.slice(4,6);
+    return `${hour}:${min}:${second}`
+}

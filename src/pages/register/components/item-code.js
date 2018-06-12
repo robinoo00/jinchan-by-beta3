@@ -1,7 +1,7 @@
 import CSSModules from 'react-css-modules'
 import styles from '../styles/form.css'
 import {connect} from 'dva'
-import {Toast} from 'antd-mobile'
+import {Toast,Flex} from 'antd-mobile'
 import React from 'react'
 
 class Item extends React.Component{
@@ -33,15 +33,15 @@ class Item extends React.Component{
     render(){
         const {...rest} = this.props;
         return(
-            <div styleName="mod-form">
-                <div styleName="td1">验证码</div>
-                <div>
+            <Flex styleName="mod-form">
+                <Flex.Item styleName="td1">验证码</Flex.Item>
+                <Flex.Item>
                     <input onChange={rest.assignCode} type="text" styleName="inp" placeholder="请输入手机验证码"/>
-                </div>
-                <div>
+                </Flex.Item>
+                <Flex.Item>
                     <input styleName="CodeBtn" onClick={rest.sendCode(this.state.can_send,this.countDown.bind(this))} type="button" value={this.state.send_text}  disabled=""/>
-                </div>
-            </div>
+                </Flex.Item>
+            </Flex>
         )
     }
 }

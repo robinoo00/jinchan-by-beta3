@@ -11,7 +11,8 @@ const Example = ({assignAgreeShow}) => {
                 title={'协议'}
                 leftCallBack={assignAgreeShow}
             />
-            <img style={{width:'100%'}} src={img}/>
+            {/*<img style={{width:'100%'}} src={img}/>*/}
+            <img style={{width:'100%'}} src={"http://web.hdlkg.net/agreement.jpg"}/>
         </div>
     );
 };

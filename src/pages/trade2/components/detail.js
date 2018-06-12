@@ -3,6 +3,7 @@ import router from 'umi/router'
 import CSSModules from 'react-css-modules'
 import styles from '../styles/trade.css'
 import {connect} from 'dva'
+import {Flex} from 'antd-mobile'
 
 let id = 0;
 class Detail extends React.Component {
@@ -17,15 +18,21 @@ class Detail extends React.Component {
     render(){
         let {earn} = this.props;
         return(
-            <div styleName="detail-list">
-                <div>持仓盈亏: <span style={earn < 0 ? {color: '#01B28E'} : {color: '#E34C4D'}}>{earn}</span></div>
-                <div styleName="trade-details" onClick={() => {router.push({pathname:'/tradeList'})}}>
-                    交易明细
-                </div>
-                <div styleName="trade-details" onClick={() => {router.push({pathname:'/limitList'})}}>
-                    挂单明细
-                </div>
-            </div>
+            <Flex styleName="detail-list">
+                <Flex.Item>
+                    <div styleName="trade-details">持仓盈亏: <span style={earn < 0 ? {color: '#01B28E'} : {color: '#E34C4D'}}>{earn}</span></div>
+                </Flex.Item>
+                <Flex.Item>
+                    <div styleName="trade-details" onClick={() => {router.push({pathname:'/tradeList'})}}>
+                        交易明细
+                    </div>
+                </Flex.Item>
+                {/*<Flex.Item>*/}
+                    {/*<div styleName="trade-details" onClick={() => {router.push({pathname:'/limitList'})}}>*/}
+                        {/*挂单明细*/}
+                    {/*</div>*/}
+                {/*</Flex.Item>*/}
+            </Flex>
         )
     }
 }

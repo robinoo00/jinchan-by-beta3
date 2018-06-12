@@ -43,11 +43,11 @@ export default {
     subscriptions: {
         setup({dispatch, history}) {
             return history.listen(({pathname, query}) => {
-                if (pathname === '/register') {
-                    dispatch({
-                        type: 'getProvince'
-                    })
-                }
+                // if (pathname === '/register') {
+                //     dispatch({
+                //         type: 'getProvince'
+                //     })
+                // }
             })
         },
     },

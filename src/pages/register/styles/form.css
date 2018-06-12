@@ -10,9 +10,15 @@
     padding: .1rem 0;
     border-bottom: 1px solid #222227;
 }
-.td1 {
-    width: 0.6rem;
+.td1{
     color: #cdcdcd;
+    white-space: nowrap;
+    flex: 0 !important;
+    min-width: 55px !important;
+    box-flex: 0 !important;
+    -webkit-box-flex: 0 !important;
+    -moz-box-flex: 0 !important;
+    -ms-box-flex: 0 !important;
 }
 .inp{
     border: none;
@@ -55,6 +61,7 @@
 }
 .file-wrap{
     position: relative;
+    text-align: center;
 }
 .file-inp{
     position: absolute;

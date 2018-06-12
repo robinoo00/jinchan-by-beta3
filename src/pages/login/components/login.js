@@ -4,7 +4,7 @@ import {connect} from 'dva'
 import Header from '../../../components/header/header'
 import Button from '../../../components/button/button'
 import {createForm} from 'rc-form'
-import {Toast,Picker,Modal} from 'antd-mobile'
+import {Toast,Picker,Modal,Flex} from 'antd-mobile'
 import router from 'umi/router'
 // import Link from 'umi/link'
 import config from '../../../utils/config'
@@ -25,27 +25,41 @@ const Login = ({...rest}) => (
                 {...rest.form.getFieldProps('sev',{
                     initialValue:[rest.choose.value]
                 })}>
-            <div styleName="mod-form">
-                    <label>类型</label>
-                    <input type="text" styleName="inp" value={rest.choose.label} readOnly/>
-            </div>
+                <Flex  styleName="mod-form">
+                    <Flex.Item styleName="label-wrap">
+                        <label>类型</label>
+                    </Flex.Item>
+                    <Flex.Item>
+                        <input type="text" styleName="inp" value={rest.choose.label} readOnly/>
+                    </Flex.Item>
+                </Flex>
             </Picker>
-            <div styleName="mod-form">
-                <label>账号</label><input {...rest.form.getFieldProps('account', {
-                initialValue: localStorage.getItem(config.ACCOUNT) === null ? '' : localStorage.getItem(config.ACCOUNT),
-                rules: [{
-                    required: true, message: '请输入您的账号',
-                }],
-            })} type="text" styleName="inp" placeholder="用户名、手机号"/>
-            </div>
-            <div styleName="mod-form">
-                <label>密码</label><input {...rest.form.getFieldProps('password', {
-                initialValue: localStorage.getItem(config.PASSWORD) === null ? '' : localStorage.getItem(config.PASSWORD),
-                rules: [{
-                    required: true, message: '请输入登录密码',
-                }],
-            })} type="password" styleName="inp" placeholder="请输入登录密码"/>
-            </div>
+            <Flex  styleName="mod-form">
+                <Flex.Item styleName="label-wrap">
+                    <label>账号</label>
+                </Flex.Item>
+                <Flex.Item>
+                    <input {...rest.form.getFieldProps('account', {
+                        initialValue: localStorage.getItem(config.ACCOUNT) === null ? '' : localStorage.getItem(config.ACCOUNT),
+                        rules: [{
+                            required: true, message: '请输入您的账号',
+                        }],
+                    })} type="text" styleName="inp" placeholder="用户名、手机号"/>
+                </Flex.Item>
+            </Flex>
+            <Flex styleName="mod-form">
+                <Flex.Item styleName="label-wrap">
+                    <label>密码</label>
+                </Flex.Item>
+                <Flex.Item>
+                    <input {...rest.form.getFieldProps('password', {
+                        initialValue: localStorage.getItem(config.PASSWORD) === null ? '' : localStorage.getItem(config.PASSWORD),
+                        rules: [{
+                            required: true, message: '请输入登录密码',
+                        }],
+                    })} type="password" styleName="inp" placeholder="请输入登录密码"/>
+                </Flex.Item>
+            </Flex>
             <div styleName="option">
                 <input type="checkbox" styleName="checkbox" checked={rest.pwd_cash} onChange={rest._handlePwdNeed}/>
                 <span styleName="remember_pw" onClick={rest._handlePwdNeed}>记住密码</span>
@@ -65,10 +79,14 @@ const Login = ({...rest}) => (
                     callBack={() => {router.push('/register')}}
                 />
             </div>
-            <div styleName="links">
-                <a href={"tel:"+config.SERVICE_TEL}>联系客服</a>
-                <a onClick={rest.showQrcode}>扫码下载</a>
-            </div>
+            <Flex>
+                <Flex.Item styleName="links">
+                    <a href={"tel:"+config.SERVICE_TEL}>联系客服</a>
+                </Flex.Item>
+                <Flex.Item styleName="links" style={{textAlign:'right'}}>
+                    <a onClick={rest.showQrcode}>扫码下载</a>
+                </Flex.Item>
+            </Flex>
         </div>
     </div>
 )

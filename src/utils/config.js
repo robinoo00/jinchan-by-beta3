@@ -5,7 +5,7 @@ export default {
     K_DATA_LIST:'k_data_list',
     ACCOUNT:'account',
     PASSWORD:'password',
-    SERVICE_TEL:'17398586532',
+    SERVICE_TEL:'15021132515',
     TRADE_SWITCH:'trade_switch',
     PWD_CASH:'pwd_cash',
     TRADE_CODE:'trade_code'
