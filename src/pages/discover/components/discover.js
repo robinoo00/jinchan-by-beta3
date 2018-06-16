@@ -29,7 +29,10 @@ class Discover extends React.Component{
                     {list.map(item => (
                         <Accordion.Panel header={item.标题} key={item.id}>
                             <div styleName="con-wrap">
-                                <div styleName="con">{item.内容}</div>
+                                <div styleName="con" dangerouslySetInnerHTML={{
+                                    __html: item.内容
+                                }}></div>
+                                {/*<div styleName="con">{item.内容}</div>*/}
                                 <div styleName="time">{item.时间}</div>
                             </div>
                         </Accordion.Panel>
