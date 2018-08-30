@@ -37,7 +37,7 @@ export default {
             {title: '银行卡正面', src: tp3, name: 'pic4', value: '',up:false},
         ],
         agree_show:false,
-        agree:true,
+        agree:false,
         validate:false
     },
     subscriptions: {

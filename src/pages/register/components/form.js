@@ -22,7 +22,7 @@ const Form = ({...rest}) => (
         <p styleName="txt-grey">
             <input type="checkbox" defaultChecked={rest.agree} onClick={rest.assignAgree}/>
             <label>
-                我已阅读并同意<a href="javascript:;" onClick={rest.assignAgreeShow} style={{color:'#5B78C0'}}>《平台网站服务协议》</a>
+                我已阅读并同意<a href="javascript:;" onClick={rest.assignAgreeShow} style={{color:'#5B78C0'}}>《用户注册协议》</a>
             </label>
         </p>
         <div style={{margin:'.1rem 0'}}>

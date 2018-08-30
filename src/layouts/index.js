@@ -11,6 +11,7 @@ class Layout extends React.Component{
     componentWillMount() {//首页列表所需数据
         const {assignList} = this.props;
         window.work.client.GetFSData = function (data) {
+            // console.log(JSON.parse(data));
             assignList(JSON.parse(data))
             sessionStorage.setItem(config.K_DATA_LIST, data);
         };
@@ -22,8 +23,10 @@ class Layout extends React.Component{
         }
         window.work.client.kdata = function (data) {
             const get_data = eval("(" + data + ")");
+            console.log(get_data);
             if(get_data.length != 0 && get_data[0]['类型'] == window.k_type_choose){
-                assignKData(eval("(" + data + ")"));
+                console.log('k_type_choose',window.k_type_choose);
+                assignKData(get_data);
             }
         };
     }

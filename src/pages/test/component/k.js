@@ -10,6 +10,7 @@ const draw = new Draw();
 var work = window.$.connection.myHub;
 window.$.connection.hub.url = 'http://139.196.236.139:1818/lcc';
 function chooseKType(code,type){
+    console.log(code);
     window.$.connection.hub.start().done(function () {
         work.server.k线(code, type, "");
     });
@@ -43,8 +44,16 @@ class K extends React.Component {
         const old_draw_data = this.props.draw_data;
         // const neq = draw_data.toString() != old_draw_data.toString();
         if(draw_data.length != 0){
+            console.log('draw_data',draw_data);
             this.draw(draw_data);
         }
+    }
+    componentWillUnmount(){
+        const {init} = this.props;
+        window.k_type_choose = '分时';
+        draw.loading();
+        draw.reload();
+        init();
     }
 
     draw(data) {
@@ -91,6 +100,7 @@ class K extends React.Component {
     }
 
     chooseType = type => () => {
+        draw.reload();
         const {...rest} = this.props;
         if (rest.type_choose != type) {
             draw.loading();
@@ -98,6 +108,7 @@ class K extends React.Component {
             rest.assignTypeChoose(type);
             const data = this.getChooseData(type);
             if (data.length != 0) {
+                // console.log('choose_data',data);
                 setTimeout(() => {
                     this.draw(data);
                 })
@@ -140,6 +151,11 @@ const mapStateToProps = state => ({
 })
 
 const mapDispatchToProps = dispatch => ({
+    init: () => {
+        dispatch({
+            type: 'test/init',
+        })
+    },
     assignData: (data) => {
         dispatch({
             type: 'test/assignData',
